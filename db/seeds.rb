@@ -14,7 +14,7 @@ u.save!
 
 
 # Test user accounts
-(1..50).each do |i|
+(1..10).each do |i|
   u = User.new(
       email: "user#{i}@example.com",
       password: "1234",
