@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140920202120) do
   add_index "colleges", ["name"], name: "index_colleges_on_name", using: :btree
 
   create_table "meals", force: true do |t|
-    t.string   "type"
+    t.string   "meal_type"
     t.integer  "college_id"
     t.datetime "date"
     t.datetime "created_at"
@@ -33,11 +33,12 @@ ActiveRecord::Schema.define(version: 20140920202120) do
   end
 
   add_index "meals", ["college_id"], name: "index_meals_on_college_id", using: :btree
-  add_index "meals", ["type"], name: "index_meals_on_type", using: :btree
+  add_index "meals", ["meal_type"], name: "index_meals_on_meal_type", using: :btree
 
   create_table "menu_items", force: true do |t|
-    t.string   "type"
-    t.string   "desc"
+    t.string   "food_type"
+    t.string   "title"
+    t.string   "body"
     t.integer  "price_cents"
     t.integer  "meal_id"
     t.datetime "created_at"
