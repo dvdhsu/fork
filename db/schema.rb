@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20140920202120) do
   create_table "meals", force: true do |t|
     t.string   "meal_type"
     t.integer  "college_id"
-    t.datetime "date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

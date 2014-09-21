@@ -3,7 +3,8 @@ class CreateMeals < ActiveRecord::Migration
     create_table :meals do |t|
       t.string :meal_type
       t.references :college, index: true
-      t.datetime :date
+      t.datetime :start_date
+      t.datetime :end_date
 
       t.timestamps
     end
