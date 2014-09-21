@@ -17,18 +17,20 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV["PG_USERNAME"] %>
-  password: <%= ENV["PG_PASSWORD"] %>
 
 development:
   <<: *default
   database: collegenotify_development
   pool: 5
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
 
 test:
   <<: *default
   database: collegenotify_test
   pool: 5
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
 
 production: 
   <<: *default
