@@ -36,10 +36,10 @@ end_date = DateTime.new(2015, 9, 18).change(offset: "-05:00")
 
 start_date.upto(end_date) do |date|
   def random_meat
-    lunch_titles = ["Lasanga", "Bangers and mash", "Beef cobbler", "Game pie",
-                    "Pie and mash", "Ploughman's lunch", "Shepherd's pie", 
-                    "Lamb tagine", "Breaded fish cake", "Breaded fresh haddock",
-                    "Peppered pork escalope", "Beef bolognaise", "Braised chicken"]
+    lunch_titles = ["lasanga", "bangers and mash", "beef cobbler", "game pie",
+                    "pie and mash", "ploughman's lunch", "shepherd's pie", 
+                    "lamb tagine", "breaded fish cake", "breaded fresh haddock",
+                    "peppered pork escalope", "beef bolognaise", "braised chicken"]
     lunch_descs = ["Meat, and cheese. Three layers of each.", "Bang them, then mash them.",
                    "It's like a peach cobbler, but with beef.", "You got game? I got pie.",
                    "Yep. It's pie again. This time, though, it's mashed.", "I don't recommend this.",
@@ -59,7 +59,7 @@ start_date.upto(end_date) do |date|
 
   breakfast.menu_items.create!(price_cents: 35, 
                                food_type: "breakfast",
-                               title: "Sausage",
+                               title: "sausage",
                                body: "A good, hearty, sausage.")
 
   lunch_meat = random_meat
@@ -68,7 +68,7 @@ start_date.upto(end_date) do |date|
                            title: lunch_meat[0],
                            body: lunch_meat[1])
   lunch.menu_items.create!(price_cents: 150, food_type: "main_veg",
-                           title: "Quorn Chilli Nachos Cheese Bake", 
+                           title: "quorn chilli nachos cheese bake", 
                            body: "It's like meat, but not.")
 
   dinner_meat = random_meat
@@ -78,7 +78,7 @@ start_date.upto(end_date) do |date|
                            title: dinner_meat[0],
                            body: dinner_meat[1])
   dinner.menu_items.create!(price_cents: 150, food_type: "main_veg",
-                           title: "Quorn Chilli Nachos Cheese Bake", 
+                           title: "quorn chilli nachos cheese bake", 
                            body: "It's like meat, but not.")
 
 end
