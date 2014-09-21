@@ -31,8 +31,8 @@ end
 c = College.create!(name: "st-hughs")
 
 # Hugh's mealtimes are fixed
-start_date = DateTime.new(2014, 9, 18, "-05:00")
-end_date = DateTime.new(2015, 9, 18, "-05:00")
+start_date = DateTime.new(2014, 9, 18).change(offset: "-05:00")
+end_date = DateTime.new(2015, 9, 18).change(offset: "-05:00")
 
 start_date.upto(end_date) do |date|
   def random_meat
@@ -64,20 +64,20 @@ start_date.upto(end_date) do |date|
 
   lunch_meat = random_meat
   lunch.menu_items.create!(price_cents: 190,
-                           food_type: "main-meat",
+                           food_type: "main_meat",
                            title: lunch_meat[0],
                            body: lunch_meat[1])
-  lunch.menu_items.create!(price_cents: 150, food_type: "main-veg",
+  lunch.menu_items.create!(price_cents: 150, food_type: "main_veg",
                            title: "Quorn Chilli Nachos Cheese Bake", 
                            body: "It's like meat, but not.")
 
   dinner_meat = random_meat
 
   dinner.menu_items.create!(price_cents: 190,
-                           food_type: "main-meat",
+                           food_type: "main_meat",
                            title: dinner_meat[0],
                            body: dinner_meat[1])
-  dinner.menu_items.create!(price_cents: 150, food_type: "main-veg",
+  dinner.menu_items.create!(price_cents: 150, food_type: "main_veg",
                            title: "Quorn Chilli Nachos Cheese Bake", 
                            body: "It's like meat, but not.")
 
