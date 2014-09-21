@@ -18,7 +18,7 @@ class RoostWorker
       }.to_json
       send_alert(conn, veg_body)
 
-      # sleep for two seconds to allow the previous notification to be read
+      # sleep for five seconds to allow the previous notification to be read
       sleep 5
 
       meat = meal.menu_items.where(food_type: "main_meat")[0]
