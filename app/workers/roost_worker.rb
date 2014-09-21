@@ -13,7 +13,8 @@ class RoostWorker
       veg_body = { 
         alert: "For " + type + ", the vegeterian option is " +
                 veg.title + ". " + veg.body,
-        url: "https://google.com"
+        url: "https://google.com",
+        segments: [type + "_veg"]
       }.to_json
       send_alert(conn, veg_body)
 
@@ -24,7 +25,8 @@ class RoostWorker
       meat_body = { 
         alert: "For " + type + ", the meat option is " +
                 meat.title + ". " + meat.body,
-        url: "https://google.com"
+        url: "https://google.com",
+        segments: [type + "_meat"]
       }.to_json
       send_alert(conn, meat_body)
     end
