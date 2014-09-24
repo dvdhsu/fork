@@ -12,6 +12,7 @@ gem 'pg'
 gem 'money-rails'
 gem 'sidekiq'
 gem 'faraday'
+gem 'mina'
 
 group :doc do
   gem 'sdoc', require: false
