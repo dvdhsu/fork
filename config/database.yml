@@ -36,3 +36,5 @@ production:
   <<: *default
   database: collegenotify_production
   pool: 25
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
