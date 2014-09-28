@@ -20,21 +20,21 @@ default: &default
 
 development:
   <<: *default
-  database: collegenotify_development
+  database: fork_development
   pool: 5
   username: <%= ENV["PG_USERNAME"] %>
   password: <%= ENV["PG_PASSWORD"] %>
 
 test:
   <<: *default
-  database: collegenotify_test
+  database: fork_test
   pool: 5
   username: <%= ENV["PG_USERNAME"] %>
   password: <%= ENV["PG_PASSWORD"] %>
 
 production: 
   <<: *default
-  database: collegenotify_production
+  database: fork_production
   pool: 25
   username: <%= ENV["PG_USERNAME"] %>
   password: <%= ENV["PG_PASSWORD"] %>
