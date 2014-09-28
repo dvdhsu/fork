@@ -12,6 +12,7 @@ gem 'money-rails'
 gem 'sidekiq'
 gem 'faraday'
 gem 'mina'
+gem 'figaro', '0.7.0'
 
 group :doc do
   gem 'sdoc', require: false
@@ -19,7 +20,6 @@ end
 
 # development gems
 group :development, :test do
-  gem 'figaro', '0.7.0'     # env variables
 end
 
 group :production do
