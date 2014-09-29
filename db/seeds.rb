@@ -31,8 +31,8 @@ end
 c = College.create!(name: "st-hughs")
 
 # Hugh's mealtimes are fixed
-start_date = DateTime.new(2014, 9, 18).change(offset: "-08:00")
-end_date = DateTime.new(2015, 9, 18).change(offset: "-08:00")
+start_date = DateTime.new(2014, 9, 18)
+end_date = DateTime.new(2015, 9, 18)
 
 start_date.upto(end_date) do |date|
   def random_meat
