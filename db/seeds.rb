@@ -51,9 +51,21 @@ start_date.upto(end_date) do |date|
 
   breakfast = c.meals.create!(meal_type: "breakfast", start_date: date.change(hour: 8), end_date: date.change(hour: 10))
 
+  breakfast_notify_time = breakfast.start_date.advance(hours: -3)
+
+  RoostWorker.perform_at(breakfast.start_date, breakfast.id)
+
   lunch = c.meals.create!(meal_type: "lunch", start_date: date.change(hour: 12, min: 30), end_date: date.change(hour: 13))
 
+  lunch_notify_time = lunch.start_date.advance(hours: -3)
+
+  RoostWorker.perform_at(lunch_notify_time, lunch.id)
+
   dinner = c.meals.create!(meal_type: "dinner", start_date: date.change(hour: 18), end_date: date.change(hour: 19, min: 15))
+
+  dinner_notify_time = dinner.start_date.advance(hours: -3)
+
+  RoostWorker.perform_at(dinner_notify_time, dinner.id)
 
   breakfast.menu_items.create!(price_cents: 35, 
                                food_type: "breakfast",
