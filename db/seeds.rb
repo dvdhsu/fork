@@ -11,8 +11,6 @@ u = User.new(
 u.skip_confirmation!
 u.save!
 
-
-
 # Test user accounts
 (1..10).each do |i|
   u = User.new(
