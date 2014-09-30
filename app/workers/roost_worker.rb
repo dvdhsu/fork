@@ -8,28 +8,26 @@ class RoostWorker
     meal = Meal.find(meal_id)
     type = meal.meal_type
 
-    if type != "breakfast" 
-      veg = meal.menu_items.where(food_type: "main_veg")[0]
-      veg_body = { 
-        alert: "For " + type + ", the vegeterian option is " +
-                veg.title + ". " + veg.body,
-        url: "https://google.com",
-        segments: [type + "_veg"]
-      }.to_json
-      send_alert(conn, veg_body)
+    veg = meal.menu_items.where(food_type: "main_veg")[0]
+    veg_body = { 
+      alert: "For " + type + ", the vegeterian option is " +
+              veg.title + ". " + veg.body,
+      url: "https://google.com",
+      segments: [type + "_veg"]
+    }.to_json
+    send_alert(conn, veg_body)
 
-      # sleep for five seconds to allow the previous notification to be read
-      sleep 5
+    # sleep for five seconds to allow the previous notification to be read
+    sleep 5
 
-      meat = meal.menu_items.where(food_type: "main_meat")[0]
-      meat_body = { 
-        alert: "For " + type + ", the meat option is " +
-                meat.title + ". " + meat.body,
-        url: "https://google.com",
-        segments: [type + "_meat"]
-      }.to_json
-      send_alert(conn, meat_body)
-    end
+    meat = meal.menu_items.where(food_type: "main_meat")[0]
+    meat_body = { 
+      alert: "For " + type + ", the meat option is " +
+              meat.title + ". " + meat.body,
+      url: "https://google.com",
+      segments: [type + "_meat"]
+    }.to_json
+    send_alert(conn, meat_body)
   end
 
   private
