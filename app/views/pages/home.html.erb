@@ -1,3 +1,161 @@
-<% title("Home Page") %>
-<h1><i class="fa fa-home"></i> Home Page <small>views/pages/home.html.erb</small></h1>
-<p>This is your home page. Use the menu at the top to sign in / sign up / sign out.</p>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Fork</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- stylesheets -->
+<%= stylesheet_link_tag "home" %>
+<%= stylesheet_link_tag "sitewide" %>
+<%= stylesheet_link_tag "animate" %>
+<%= stylesheet_link_tag "checkbox" %>
+
+<!-- javascript -->
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "home" %>
+<script type = "text/javascript" src="//cdn.goroost.com/js/roost.js" async></script>
+
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="home">
+<header class="navbar navbar-inverse hero" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand">Fork</a>
+    </div>
+  </div>
+</header>
+
+<div id="hero">
+  <div class="container">
+    <h1 class="hero-text animated fadeInDown">
+      Hall menus. <br />
+      Pushed to you daily.
+    </h1>
+    <p class="sub-text animated fadeInDown">
+    For Mac. <br>
+    iOS and Android coming soon.
+    </p>
+    <div class="cta animated fadeInDown">
+      <a href="features.html" class="button-outline">See the tour</a>
+      <a href="signup.html" class="button">Sign up free</a>
+    </div>
+    <div class="img"></div>
+  </div>
+</div>
+
+<div id="features">
+  <div class="container">
+    <div class="row header">
+      <div class="col-md-12">
+        <h2>Getting notified is easy.</h2>
+        <p>Sign up in 10 seconds, flat. Cancel anytime.</p>
+      </div>
+    </div>
+    <div class="row feature">
+      <div class="col-sm-8 info">
+        <h4>Choose the meals you want. Then, hit subscribe.</h4>
+        <p>
+        Lunch or dinner? We've got both. Breakfast and brunch? Not coming soon.
+        </p>
+      </div>
+      <div class="col-sm-4 info">
+        <form class="form-horizontal">
+          <h4>Subscribe now:</h4>
+          <div id="subscription">
+            <div class="checkbox checkbox-inline">
+              <input type="checkbox" id="lunch" value="true">
+              <label for="lunch">Lunch</label>
+            </div>
+            <div class="checkbox checkbox-inline">
+              <input type="checkbox" id="dinner" value="true">
+              <label for="dinner"> Dinner </label>
+            </div>
+            <div id="subscribeButton">
+              <input class="btn btn-primary feature-button" value="Subscribe" type="submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row feature backwards">
+      <div class="col-sm-6 info">
+        <h4>Approve, and notifications will come rolling in. That's it.</h4>
+        <p>
+        Welcome to the club. You'll hear from us three hours before every meal.
+        </p>
+      </div>
+      <div class="col-sm-6 image">
+        <img src="http://placehold.it/375x204" class="img-responsive" alt="feature2" />
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row feature">
+      <div class="col-sm-8 info">
+        <h4>Not on Mac?</h4>
+        <p>
+        Leave us your email, and we'll let you know when iOS and Android launch.
+        </p>
+      </div>
+      <div class="col-sm-4 info">
+        <form class="form-horizontal">
+          <h4>Let me know:</h4>
+          <div id="emailUpdate">
+            <div class="checkbox checkbox-inline">
+              <input type="checkbox" id="ios" value="true">
+              <label for="ios">iOS</label>
+            </div>
+            <div class="checkbox checkbox-inline">
+              <input type="checkbox" id="android" value="true">
+              <label for="android">Android</label>
+            </div>
+            <div id="updateEmailBox" class="form-group">
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="updateEmail" placeholder="Email">
+              </div>
+            </div>
+            <div id="updateButton">
+              <input class="btn btn-primary feature-button" value="Update me" type="submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>About</h3>
+        <p>
+        Content goes here.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-white">
+  <div class="container">
+    <div class="row credits">
+      <div class="col-md-12">
+        © 2014, dvdhsu
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
