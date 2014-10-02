@@ -28,3 +28,6 @@ doc/
 # Ignore application configuration
 /config/application.yml
 .secret
+
+# Ignore assets in public folder
+/public/assets/*
