@@ -17,6 +17,7 @@
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "home" %>
 
+<%= csrf_meta_tags %>
 
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -108,27 +109,25 @@
         </p>
       </div>
       <div class="col-sm-4 info">
-        <form class="form-horizontal">
-          <h4>Let me know:</h4>
-          <div id="emailUpdate">
-            <div class="checkbox checkbox-inline">
-              <input type="checkbox" id="ios" value="true">
-              <label for="ios">iOS</label>
-            </div>
-            <div class="checkbox checkbox-inline">
-              <input type="checkbox" id="android" value="true">
-              <label for="android">Android</label>
-            </div>
-            <div id="updateEmailBox" class="form-group">
-              <div class="col-sm-9">
-                <input type="email" class="form-control" id="updateEmail" placeholder="Email">
-              </div>
-            </div>
-            <div id="updateButton">
-              <input class="btn btn-primary feature-button" value="Update me" type="submit">
+        <h4>Let me know:</h4>
+        <%= form_tag('updates_subscribe', method: 'post', remote: true, class: "form-horizontal", id: "updatesSubscribe") do %>
+          <div class="checkbox checkbox-inline">
+            <%= check_box_tag('ios') %>
+            <label for="ios">iOS</label>
+          </div>
+          <div class="checkbox checkbox-inline">
+            <%= check_box_tag('android') %>
+            <label for="android">Android</label>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-9">
+              <%= email_field_tag('email', nil, class: 'form-control', placeholder: 'Email', required: true) %>
             </div>
           </div>
-        </form>
+          <div id="updateButton">
+            <%= submit_tag("Update me", class: "btn btn-primary feature-button") %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

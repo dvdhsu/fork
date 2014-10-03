@@ -2,21 +2,25 @@ var _roost = _roost || [];
 _roost.push(['appkey','98a85b848529445d93e5f17368b71a78']);
 _roost.push(['autoprompt', false]);
 
+function checked(id) {
+  return $('#' + id).is(':checked');
+}
+
 $(function() {
   $('#subscribeButton').click(function(e) {
     e.preventDefault();
 
-    if ($('#lunch').is(':checked') || $('#dinner').is(':checked')) {
+    if (checked('lunch') || checked('dinner')) {
       subs = [];
       _roost.prompt();
       _roost.push(["segments_clear"]);
 
-      if ($('#lunch').is(':checked')) {
+      if (checked('lunch')) {
         subs.push("lunch");
         _roost.push(["segments_add", "lunch"]);
       }
 
-      if($('#dinner').is(':checked')) {
+      if (checked('dinner')) {
         subs.push("dinner");
         _roost.push(["segments_add", "dinner"]);
       }
@@ -29,26 +33,23 @@ $(function() {
         var subsConcat = subs[0] + " and " + subs[1];
       }
 
-      var replaceText =  "<p class=\"animated fadeInDown\">Thanks for subscribing. We'll notify you about "
-                         + subsConcat + ".</p>";
+      var replaceText =  "<div class=\"animated fadeInDown\"><p>Thanks for subscribing. We'll notify you about "
+                         + subsConcat 
+                         + ".</p> <p>If this is your first time, you'll need to approve when Safari asks to send you push notifications. That'll happen in a few seconds.</p></div>";
       $('#subscription').replaceWith(replaceText);
     }
   });
 
-  $('#updateButton').click(function(e) {
-    e.preventDefault();
-
-    if ($('#ios').is(':checked') || $('#android').is(':checked')) {
+  $('#updatesSubscribe').on('ajax:success', function(xhr, status, error) {
+    if (checked('ios') || checked('android')) {
       var updates = [];
 
-      if ($('#ios').is(':checked')) {
-        updates.push("iOS");
-        // subscribe ios
+      if (checked('ios')) {
+        updates.push('iOS');
       }
 
-      if ($('#android').is(':checked')) {
-        updates.push("Android");
-        // subscribe android
+      if (checked('android')) {
+        updates.push('Android');
       }
 
       // reflect changes
@@ -61,7 +62,7 @@ $(function() {
 
       var replaceText =  "<p class=\"animated fadeInDown\">Thanks. We'll let you know when we launch on "
                          + updatesConcat + ".</p>";
-      $('#emailUpdate').replaceWith(replaceText);
+      $('#updatesSubscribe').replaceWith(replaceText);
     }
   });
 

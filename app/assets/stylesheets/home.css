@@ -2,10 +2,10 @@
   margin-top: 17px;
 }
 
-#updateEmail {
+#email {
   margin-top: 17px;
 }
 
-#updateEmailBox {
+.form-group {
   margin-bottom: 0px !important;
 }
