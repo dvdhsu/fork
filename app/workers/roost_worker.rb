@@ -17,7 +17,6 @@ class RoostWorker
       url: "https://google.com",
       segments: [type]
     }.to_json
-    logger.debug push_body
     send_alert(conn, push_body)
 
 =begin
