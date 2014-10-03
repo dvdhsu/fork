@@ -13,7 +13,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :rails_env, 'production'
 
 set :domain, '108.61.221.50'
-set :deploy_to, '/srv/fork'
+set :deploy_to, '/srv/notifsta'
 set :repository, 'https://github.com/dvdhsu/fork.git'
 set :branch, 'master'
 
