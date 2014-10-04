@@ -7,6 +7,13 @@ function checked(id) {
 }
 
 $(function() {
+  $('a[href*=#]').click(function(event){
+        $('html, body').animate({
+                  scrollTop: $( $.attr(this, 'href') ).offset().top
+              }, 500);
+            event.preventDefault();
+  });
+
   $('#subscribeButton').click(function(e) {
     e.preventDefault();
 
