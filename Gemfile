@@ -14,6 +14,7 @@ gem 'sidekiq'
 gem 'faraday'
 gem 'mina'
 gem 'figaro', '0.7.0'
+gem 'rails_admin'
 
 group :doc do
   gem 'sdoc', require: false
