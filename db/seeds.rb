@@ -61,13 +61,13 @@ start_date.upto(end_date) do |date|
 
   lunch_notify_time = lunch.start_date.advance(hours: -3)
 
-  RoostWorker.perform_at(lunch_notify_time, lunch.id)
+  #RoostWorker.perform_at(lunch_notify_time, lunch.id)
 
   dinner = c.meals.create!(meal_type: "dinner", start_date: date.change(hour: 18), end_date: date.change(hour: 19, min: 15))
 
   dinner_notify_time = dinner.start_date.advance(hours: -3)
 
-  RoostWorker.perform_at(dinner_notify_time, dinner.id)
+  #RoostWorker.perform_at(dinner_notify_time, dinner.id)
 
   lunch_meat = random_meat
   lunch_veg = random_veg
