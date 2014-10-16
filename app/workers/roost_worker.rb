@@ -13,7 +13,7 @@ class RoostWorker
 
     push_body = {
       alert: "For " + type + ", there's " +
-             meat.title + " and " + veg.title + ".", 
+             meat.title + " ,and " + veg.title + ".", 
       url: "https://notifsta.com",
       segments: [type]
     }.to_json
