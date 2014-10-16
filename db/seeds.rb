@@ -1,29 +1,15 @@
 # Generated with RailsBricks
 # Initial seed file to use with Devise User Model
 
-# Temporary admin account
+# Admin account
 u = User.new(
-    email: "admin@example.com",
-    password: "1234",
-    password_confirmation: "1234",
+    email: ENV["ADMIN_EMAIL"],
+    password: ENV["ADMIN_PASSWORD"],
+    password_confirmation: ENV["ADMIN_PASSWORD"],
     admin: true
 )
 u.skip_confirmation!
 u.save!
-
-# Test user accounts
-(1..10).each do |i|
-  u = User.new(
-      email: "user#{i}@example.com",
-      password: "1234",
-      password_confirmation: "1234"
-  )
-  u.skip_confirmation!
-  u.save!
-
-  puts "#{i} test users created..." if (i % 5 == 0)
-
-end
   
 # Start with Hugh's
 c = College.create!(name: "st-hughs")
