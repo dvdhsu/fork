@@ -1,5 +1,4 @@
 var _roost = _roost || [];
-_roost.push(['appkey','98a85b848529445d93e5f17368b71a78']);
 _roost.push(['autoprompt', false]);
 
 function checked(id) {
@@ -19,7 +18,6 @@ $(function() {
 
     if (checked('lunch') || checked('dinner')) {
       subs = [];
-      _roost.prompt();
       _roost.push(["segments_clear"]);
 
       if (checked('lunch')) {
@@ -44,6 +42,7 @@ $(function() {
                          + subsConcat 
                          + ".</p> <p>If this is your first time, you'll need to approve when Safari asks to send you push notifications. That'll happen in a few seconds.</p></div>";
       $('#subscription').replaceWith(replaceText);
+      _roost.prompt();
     }
   });
 
