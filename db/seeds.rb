@@ -15,7 +15,7 @@ u.save!
 c = College.create!(name: "st-hughs")
 
 # Hugh's mealtimes are fixed
-start_date = DateTime.new(2014, 10, 15)
+start_date = DateTime.new(2014, 11, 20)
 end_date = DateTime.new(2015, 9, 18)
 
 start_date.upto(end_date) do |date|
