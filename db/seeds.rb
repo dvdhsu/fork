@@ -1,5 +1,4 @@
 # Generated with RailsBricks
-# Initial seed file to use with Devise User Model
 
 # Admin account
 u = User.new(
@@ -18,29 +17,31 @@ c = College.create!(name: "st-hughs")
 start_date = DateTime.new(2014, 11, 20)
 end_date = DateTime.new(2015, 9, 18)
 
-start_date.upto(end_date) do |date|
-  def random_meat
-    lunch_titles = ["lasanga", "bangers and mash", "beef cobbler", "game pie",
-                    "pie and mash", "ploughman's lunch", "shepherd's pie", 
-                    "lamb tagine", "breaded fish cake", "breaded fresh haddock",
-                    "peppered pork escalope", "beef bolognaise", "braised chicken"]
-    lunch_descs = ["Meat, and cheese. Three layers of each.", "Bang them, then mash them.",
-                   "It's like a peach cobbler, but with beef.", "You got game? I got pie.",
-                   "Yep. It's pie again. This time, though, it's mashed.", "I don't recommend this.",
-                   "If a shepherd made a pie, it'd probably be like this.", 
-                   "It's exotic, since it's from Morocco.", "Imagine you had a cake, made of fish. Here it is.",
-                   "It's like a breaded fish cake, but it's not a cake.", "A hot pig.",
-                   "Probably worse than your mum's.", "What happens when you braise a chicken? Give it a try here."]
-    index = rand(13)
-    return lunch_titles[index], lunch_descs[index]
-  end
+def is_weekend(d)
+  return d.saturday? || d.sunday?
+end
 
-  def random_veg
-    lunch_titles = ["vegetable lasanga", "nut roast with Yorkshire pudding", "cheese, potato, and onion strudel",
-                    "mushroom risotto", "root vegetable gratin", "breaded quorn escalope", "cheese tortellini",
-                    "mushroom and pepper stroganoff", "rost vegetable encroute", "leek and cheese crumble"]
-    index = rand(10)
-    return lunch_titles[index], ""
+def random_meat
+  lunch_titles = ["lasanga", "bangers and mash", "beef cobbler", "game pie",
+                  "pie and mash", "ploughman's lunch", "shepherd's pie",
+                  "lamb tagine", "breaded fish cake", "breaded fresh haddock",
+                  "peppered pork escalope", "beef bolognaise", "braised chicken"]
+  index = rand(13)
+  return lunch_titles[index], ""
+end
+
+def random_veg
+  lunch_titles = ["vegetable lasanga", "nut roast with Yorkshire pudding", "cheese, potato, and onion strudel",
+                  "mushroom risotto", "root vegetable gratin", "breaded quorn escalope", "cheese tortellini",
+                  "mushroom and pepper stroganoff", "rost vegetable encroute", "leek and cheese crumble"]
+  index = rand(10)
+  return lunch_titles[index], ""
+end
+
+start_date.upto(end_date) do |date|
+  # no meals on weekends for Hugh's
+  if is_weekend date
+    next
   end
 
   lunch = c.meals.create!(meal_type: "lunch", start_date: date.change(hour: 12, min: 30), end_date: date.change(hour: 13))
