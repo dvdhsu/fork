@@ -14,7 +14,7 @@ u.save!
 c = College.create!(name: "st-hughs")
 
 # Hugh's mealtimes are fixed
-start_date = DateTime.new(2014, 11, 20)
+start_date = DateTime.new(2014, 11, 22)
 end_date = DateTime.new(2015, 9, 18)
 
 def is_weekend(d)
