@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Collegenotify::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "pages#home"    
@@ -7,4 +9,9 @@ Collegenotify::Application.routes.draw do
   post "updates_subscribe", to: "updates#create"
 
   devise_for :users
+
+  # sidekiq monitoring
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web, at: "/sidekiq"
+  end
 end

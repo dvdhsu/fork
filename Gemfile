@@ -16,6 +16,9 @@ gem 'mina'
 gem 'figaro', '0.7.0'
 gem 'rails_admin'
 
+gem 'sinatra', require: false
+gem 'slim'
+
 group :doc do
   gem 'sdoc', require: false
 end
